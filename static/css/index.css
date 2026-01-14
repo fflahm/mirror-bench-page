@@ -134,4 +134,83 @@ body {
 }
 
 
+/* 表格容器样式 */
+.table-container {
+    margin: 20px 0;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
 
+/* Tabulator 表格样式优化 */
+.tabulator {
+    font-family: 'Google Sans', 'Noto Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+}
+
+.tabulator-header {
+    background-color: #f8f9fa !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid #e9ecef !important;
+}
+
+.tabulator-row {
+    border-bottom: 1px solid #e9ecef !important;
+}
+
+.tabulator-row:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* 第一名高亮 */
+.tabulator-row[style*="background-color: rgb(255, 248, 230)"] {
+    background-color: #fff8e6 !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .tabulator {
+        font-size: 0.85rem !important;
+    }
+    
+    .nav-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem;
+    }
+}
+
+/* 进度条样式优化 */
+.tabulator-progress-bar {
+    height: 16px !important;
+    border-radius: 8px !important;
+    background-color: #e9ecef !important;
+}
+
+/* 选项卡样式 */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.nav-link {
+    color: #6c757d;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0d6efd;
+}
+
+.nav-link.active {
+    color: #0d6efd;
+    border-bottom: 2px solid #0d6efd;
+}

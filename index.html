@@ -40,6 +40,18 @@
     <script src="static/js/bulma-carousel.min.js"></script>
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
+
+      <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tabulator Tables (专业表格库) -->
+    <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+
+    <!-- Chart.js (用于在表格中显示图表) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
   </head>
 
   <body>
@@ -149,100 +161,43 @@
 
     <section class="section">
       <div class="container is-max-desktop content">
-        <h2 class="title">Benchmark Results</h2>
-        <div class="table-container">
-          <table class="benchmark-table">
-            <thead>
-              <tr>
-                <th>Model</th>
-                <th colspan="3">Perception</th>
-                <th colspan="3">Reasoning</th>
-                <th colspan="2">Action</th>
-                <th>Average</th>
-              </tr>
-              <tr>
-                <th></th>
-                <th>Object</th>
-                <th>Scene</th>
-                <th>Relation</th>
-                <th>Planning</th>
-                <th>QA</th>
-                <th>Memory</th>
-                <th>Navigation</th>
-                <th>Manipulation</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="first-place">
-                <td><strong>MirrorBench-1.3B</strong></td>
-                <td><strong>85.2</strong></td>
-                <td><strong>78.9</strong></td>
-                <td><strong>82.1</strong></td>
-                <td><strong>76.5</strong></td>
-                <td><strong>81.3</strong></td>
-                <td><strong>79.8</strong></td>
-                <td><strong>72.4</strong></td>
-                <td><strong>75.6</strong></td>
-                <td><strong>79.0</strong></td>
-              </tr>
-              <tr>
-                <td>LLaVA-1.5</td>
-                <td>76.8</td>
-                <td>68.2</td>
-                <td>71.5</td>
-                <td>65.3</td>
-                <td>70.1</td>
-                <td>68.9</td>
-                <td>62.1</td>
-                <td>64.8</td>
-                <td>68.5</td>
-              </tr>
-              <tr>
-                <td>Qwen-VL</td>
-                <td>73.5</td>
-                <td>65.8</td>
-                <td>68.9</td>
-                <td>62.7</td>
-                <td>67.4</td>
-                <td>65.2</td>
-                <td>59.8</td>
-                <td>61.5</td>
-                <td>65.6</td>
-              </tr>
-              <tr>
-                <td>IDEFICS2</td>
-                <td>70.2</td>
-                <td>62.1</td>
-                <td>65.3</td>
-                <td>59.8</td>
-                <td>64.2</td>
-                <td>62.5</td>
-                <td>57.3</td>
-                <td>58.9</td>
-                <td>62.5</td>
-              </tr>
-              <tr>
-                <td>GPT-4V</td>
-                <td>78.9</td>
-                <td>72.3</td>
-                <td>75.6</td>
-                <td>69.8</td>
-                <td>74.5</td>
-                <td>72.1</td>
-                <td>65.7</td>
-                <td>68.2</td>
-                <td>72.1</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2 class="title has-text-centered">Benchmark Results</h2>
+        
+        <!-- 选项卡切换 -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="resultsTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="overall-tab" data-bs-toggle="tab" 
+                    data-bs-target="#overall-results" type="button" role="tab"
+                    aria-controls="overall-results" aria-selected="true">
+              Overall Results
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="detailed-tab" data-bs-toggle="tab" 
+                    data-bs-target="#detailed-results" type="button" role="tab"
+                    aria-controls="detailed-results" aria-selected="false">
+              Detailed Metrics
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <!-- 总体结果表格 -->
+          <div class="tab-pane fade show active" id="overall-results" role="tabpanel">
+            <div id="mirrorbench-overall-table" class="table-container"></div>
+          </div>
+          
+          <!-- 详细结果表格 -->
+          <div class="tab-pane fade" id="detailed-results" role="tabpanel">
+            <div id="mirrorbench-detailed-table" class="table-container"></div>
+          </div>
         </div>
-        <!-- bibtex code -->
-        <h2>BibTeX</h2>
-        <pre><code>BibTex Code Here</code></pre>
+        
+        <p class="has-text-centered mt-3">
+          <small>Higher scores indicate better performance. Results are averaged across multiple evaluation runs.</small>
+        </p>
       </div>
     </section>
-    <!-- end BibTex citation -->
 
     <footer class="footer">
       <div class="container">
@@ -271,117 +226,7 @@
     <!-- statcounter tracking code -->
     <!-- you can add a tracker to track page visits by creating an account at statcounter.com -->
     <!-- end of statounter code -->
+    <script src="static/js/benchmark_table.js" type="module"></script>
   </body>
 </html>
 
-<style>
-  /* css classes for the 1-6 column layout */
-  .row-1 .column {
-    float: left;
-    width: 99%;
-    padding: 5px;
-  }
-  .row-2 .column {
-    float: left;
-    width: 49%;
-    padding: 5px;
-  }
-  .row-3 .column {
-    float: left;
-    width: 33%;
-    padding: 5px;
-  }
-  .row-4 .column {
-    float: left;
-    width: 25%;
-    padding: 5px;
-  }
-  .row-5 .column {
-    float: left;
-    width: 20%;
-    padding: 5px;
-  }
-  .row-6 .column {
-    float: left;
-    width: 16.6%;
-    padding: 5px;
-  }
-  .benchmark-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 0.9em;
-    font-family: 'Google Sans', 'Noto Sans', sans-serif;
-  }
-
-  .benchmark-table th {
-    background-color: #f8f9fa;
-    color: #333;
-    font-weight: 600;
-    text-align: center;
-    padding: 12px 8px;
-    border-bottom: 2px solid #e9ecef;
-  }
-
-  .benchmark-table td {
-    padding: 10px 8px;
-    text-align: center;
-    border-bottom: 1px solid #e9ecef;
-  }
-
-  .benchmark-table tbody tr {
-    transition: background-color 0.2s;
-  }
-
-  .benchmark-table tbody tr:hover {
-    background-color: #f8f9fa;
-  }
-
-  .benchmark-table tbody tr:first-child td {
-    border-top: 1px solid #e9ecef;
-  }
-
-  /* 第一名高亮显示 */
-  .benchmark-table .first-place td {
-    background-color: #fff8e6;
-    font-weight: 600;
-  }
-
-  .benchmark-table .first-place td:first-child {
-    background-color: #ffecb3;
-  }
-
-  /* 表头分组样式 */
-  .benchmark-table th[colspan="2"],
-  .benchmark-table th[colspan="3"],
-  .benchmark-table th[colspan="4"] {
-    background-color: #e9ecef;
-    color: #333;
-    font-weight: 700;
-  }
-
-  /* 响应式设计 */
-  .table-container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-
-  /* 移动设备优化 */
-  @media (max-width: 768px) {
-    .benchmark-table {
-      font-size: 0.8em;
-    }
-    
-    .benchmark-table th,
-    .benchmark-table td {
-      padding: 6px 4px;
-    }
-    
-    .benchmark-table th[colspan]:not([colspan="1"]) {
-      display: none;
-    }
-  }
-</style>
