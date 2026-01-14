@@ -115,6 +115,19 @@ body {
   overflow-x: auto; /* 横向滚动由内容自动决定 */
 }
 
+/* Tabulator 表格字体设置 */
+#mirrorbench-detailed-table .tabulator {
+    font-size: 14px;                      /* 桌面端字体大小 */
+}
+
+#mirrorbench-detailed-table .tabulator-header .tabulator-col-content {
+    font-size: 14px;                      /* 列头字体 */
+}
+
+#mirrorbench-detailed-table .tabulator-cell {
+    font-size: 14px;                      /* 单元格字体 */
+}
+
 /* ===== 响应式优化 ===== */
 @media (max-width: 768px) {
   .tabulator, 
