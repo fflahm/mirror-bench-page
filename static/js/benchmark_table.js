@@ -229,13 +229,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.is_human) {
                 rowEl.style.borderTop = "2px dashed #000";
                 rowEl.style.borderBottom = "2px dashed #000";
+                rowEl.style.backgroundColor = "#ffffff";
             }
             // Random行特殊样式
             else if (data.is_random) {
                 rowEl.style.borderTop = "2px dashed #000";
                 rowEl.style.borderBottom = "2px dashed #000";
+                rowEl.style.backgroundColor = "#ffffff";
             }
-            
+            else if (data.model.includes("-API")) {
+                rowEl.style.backgroundColor = "#fffde7"; // 浅黄色背景
+            }
+            else {
+                rowEl.style.backgroundColor = "#f1f8e9"; // 浅绿色背景
+            }
             // 高亮最高和次高值
             applyHighlightStyling(row, data);
         },
