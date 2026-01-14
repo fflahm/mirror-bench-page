@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 列定义 - 按照你的LaTeX表格结构
         columns: [
             // 固定第一列宽度，不拉伸
-            {title: "Model", field: "model", hozAlign: "left", headerFilter: true},
+            {title: "Model", field: "model", width: 200, hozAlign: "left", headerFilter: true},
             
             // 其余列使用fitData，让Tabulator自适应
             {title: "Human", headerHozAlign: "center", columns: [
