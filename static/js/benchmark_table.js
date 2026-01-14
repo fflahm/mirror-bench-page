@@ -141,17 +141,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = row.getData();
             const rowEl = row.getElement();
             
-            // Human行特殊样式
-            if (data.is_human) {
-                rowEl.style.backgroundColor = "#e0e0e0";
-            }
-            // Random行特殊样式
-            else if (data.is_random) {
-                rowEl.style.backgroundColor = "#f5f5f5";
-            }
+            // // Human行特殊样式
+            // if (data.is_human) {
+            //     rowEl.style.backgroundColor = "#e0e0e0";
+            // }
+            // // Random行特殊样式
+            // else if (data.is_random) {
+            //     rowEl.style.backgroundColor = "#f5f5f5";
+            // }
             
-            // 高亮最高和次高值
-            applyHighlightStyling(row, data);
+            // // 高亮最高和次高值
+            // applyHighlightStyling(row, data);
         },
         
         // 排序
@@ -165,8 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let value = cell.getValue();
         if (value === null || value === undefined) return "";
         
-        // TSR列保留3位小数，其他列保留3位小数
-        let formattedValue = params.is_tsr ? value.toFixed(3) : value.toFixed(3);
+        let formattedValue = value.toFixed(3);
         
         // 特殊值处理
         if (Math.abs(value) < 0.0005 && value !== 0) {
