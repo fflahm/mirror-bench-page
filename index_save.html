@@ -147,8 +147,130 @@
       </div>
     </section>
 
+    <!-- <section class="section hero is-light">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- end paper abstract -->
+
     <section class="section">
       <div class="container is-max-desktop content">
+        <!-- multiple columns -->
+        <h2>Multiple columns</h2>
+        <!-- 3-columns example -->
+        <div class="row-3">
+          <div class="column">
+            <center>Ours</center>
+            <video poster="" id="tree" autoplay controls muted loop height="100%">
+              <source src="static/videos/carousel1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column">
+            <center>Baseline<a href="#footnote-1">[1]</a></center>
+            <video poster="" id="tree" autoplay controls muted loop height="100%">
+              <source src="static/videos/carousel2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column">
+            <center>Baseline<a href="#footnote-2">[2]</a></center>
+            <video poster="" id="tree" autoplay controls muted loop height="100%">
+              <source src="static/videos/carousel3.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- 2-columns example -->
+        <div class="row-2">
+          <div class="column">
+            <center>Ours</center>
+            <img src="./static/images/carousel1.jpg" alt="result">
+          </div>
+          <div class="column">
+            <center>Baseline<a href="#footnote-1">[1]</a></center>
+            <img src="./static/images/carousel2.jpg" alt="result">
+          </div>
+        </div>
+
+        <!-- youtube video -->
+        <h2>YouTube video</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- image carousel -->
+        <h2>Image carousel</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+            <h2 class="subtitle is-7 has-text-centered">
+              First image description.
+            </h2>
+          </div>
+          <div class="item">
+            <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+            <h2 class="subtitle is-7 has-text-centered">
+              Second image description.
+            </h2>
+          </div>
+          <div class="item">
+            <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+            <h2 class="subtitle is-7 has-text-centered">
+              Third image description.
+            </h2>
+          </div>
+          <div class="item">
+            <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+            <h2 class="subtitle is-7 has-text-centered">
+              Fourth image description.
+            </h2>
+          </div>
+        </div>
+
+        <!-- video carousel -->
+        <h2>Video carousel</h2>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-video1">
+              <video poster="" id="video1" autoplay controls muted loop height="100%">
+                <source src="static/videos/carousel1.mp4" type="video/mp4">
+              </video>
+              <h2 class="subtitle is-7 has-text-centered">
+                First video description.
+              </h2>
+            </div>
+            <div class="item item-video2">
+              <video poster="" id="video2" autoplay controls muted loop height="100%">
+                <source src="static/videos/carousel2.mp4" type="video/mp4">
+              </video>
+              <h2 class="subtitle is-7 has-text-centered">
+                Second video description.
+              </h2>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="100%">
+                <source src="static/videos/carousel3.mp4" type="video/mp4">
+              </video>
+              <h2 class="subtitle is-7 has-text-centered">
+                Third video description.
+              </h2>
+            </div>
+          </div>
+
+        <!-- paper poster -->
+        <h2>Poster</h2>
+        <iframe  src="static/pdfs/sample.pdf" width="100%" height="550"></iframe>
+
         <!-- bibtex code -->
         <h2>BibTeX</h2>
         <pre><code>BibTex Code Here</code></pre>
