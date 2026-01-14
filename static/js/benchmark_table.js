@@ -275,40 +275,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // A：最高值（红色，优先级最高）
             if (data[keyA]) {
-                cellEl.style.backgroundColor = "#ffebee"; // 浅红
-                cellEl.style.color = "#c62828";           // 深红
+                cellEl.style.backgroundColor = "#4472c4";
+                // cellEl.style.color = "#c62828";
                 cellEl.style.fontWeight = "bold";
                 return;
             }
 
             // B：次高值（黄色）
             if (data[keyB]) {
-                cellEl.style.backgroundColor = "#fff8e1"; // 浅黄
-                cellEl.style.color = "#ef6c00";           // 深橙
+                cellEl.style.backgroundColor = "#E76254";
+                // cellEl.style.color = "#ef6c00";
                 cellEl.style.fontWeight = "bold";
                 return;
             }
         });
     }
-
-
-
     // 添加下载按钮
-    addDownloadButton();
+    // addDownloadButton();
 });
 
 // 添加下载按钮
-function addDownloadButton() {
-    const downloadBtn = document.createElement('button');
-    downloadBtn.className = 'btn btn-sm btn-outline-secondary mb-3';
-    downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download CSV';
-    downloadBtn.onclick = function() {
-        // 这里需要实现CSV导出功能
-        alert('CSV download functionality needs to be implemented');
-    };
+// function addDownloadButton() {
+//     const downloadBtn = document.createElement('button');
+//     downloadBtn.className = 'btn btn-sm btn-outline-secondary mb-3';
+//     downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download CSV';
+//     downloadBtn.onclick = function() {
+//         // 这里需要实现CSV导出功能
+//         alert('CSV download functionality needs to be implemented');
+//     };
     
-    const tableContainer = document.querySelector('#mirrorbench-detailed-table');
-    if (tableContainer && tableContainer.parentElement) {
-        tableContainer.parentElement.insertBefore(downloadBtn, tableContainer);
-    }
-}
+//     const tableContainer = document.querySelector('#mirrorbench-detailed-table');
+//     if (tableContainer && tableContainer.parentElement) {
+//         tableContainer.parentElement.insertBefore(downloadBtn, tableContainer);
+//     }
+// }
