@@ -190,15 +190,20 @@
             <div id="mirrorbench-detailed-table" class="table-container"></div>
         </div>
         
-        <p class="has-text-centered mt-3">
+        <!-- <p class="has-text-centered mt-3">
             <small>Higher scores (↑) indicate better performance. <strong>Human</strong> row shows expert performance. 
             <strong>Random</strong> row shows baseline performance of random policy. 
             Red highlights indicate highest scores, yellow highlights indicate second highest scores.</small>
-        </p>
-
-        <p class="has-text-centered mt-3">
-          <small>Higher scores indicate better performance. Results are averaged across multiple evaluation runs.</small>
-        </p>
+        </p> -->
+        <div style="font-size: 0.9em; line-height: 1.4em;">
+            Higher scores (↑) indicate better performance.<br>
+            Column headers use single-letter abbreviations for metrics (T = TSR, S = SIR, F = FCR, P = PCR, A = Average) to save space.<br>
+            Colored text highlights relative performance: 
+            <span style="color:#4472c4;font-weight:bold;">highest</span>, 
+            <span style="color:#E76254;font-weight:bold;">second highest</span>.<br>
+            Background shading indicates model type: <span style="background:#fffde7;">proprietary</span>, 
+            <span style="background:#f1f8e9;">open-source</span>.
+        </div>
       </div>
     </section>
 
