@@ -157,9 +157,9 @@ body {
     text-overflow: ellipsis !important;
 }
 
-.tabulator .tabulator-table {
+/* .tabulator .tabulator-table {
     table-layout: auto !important;
-}
+} */
 
 /* 修复表格容器宽度 */
 #mirrorbench-detailed-table {
