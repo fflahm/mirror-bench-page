@@ -1,0 +1,336 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-banner {
+  max-height: parent;
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+.slider-pagination .slider-page {
+  background: #000000;
+}
+
+.eql-cntrb { 
+  font-size: smaller;
+}
+
+
+/* =================== 表格样式 (修复版) =================== */
+
+/* 修复表头布局问题 */
+.tabulator .tabulator-header {
+    min-height: 60px !important;
+}
+
+/* 修复多级表头嵌套问题 */
+.tabulator-header .tabulator-col-group .tabulator-col-group-cols {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* 保留 nowrap 保证列在一行 */
+}
+
+/* 修复表头行高度 */
+.tabulator-header .tabulator-header-row:first-child {
+    height: 30px !important;
+}
+
+.tabulator-header .tabulator-header-row:last-child {
+    height: 30px !important;
+}
+
+/* 确保所有单元格正确对齐 */
+.tabulator-table .tabulator-row .tabulator-cell {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* .tabulator .tabulator-table {
+    table-layout: auto !important;
+} */
+
+/* 修复表格容器宽度 */
+#mirrorbench-detailed-table {
+    width: 100% !important;
+    /* overflow-x: visible !important;
+    min-width: unset !important; */
+}
+
+/* 表格容器样式 */
+.table-container {
+    margin: 20px 0;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Tabulator 表格基础样式 */
+.tabulator {
+    font-family: 'Google Sans', 'Noto Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+    background-color: white !important;
+    border: 1px solid #e9ecef !important;
+    border-radius: 8px !important;
+}
+
+.tabulator-header {
+    background-color: #f8f9fa !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid #e9ecef !important;
+    font-family: 'Google Sans', sans-serif !important;
+}
+
+.tabulator-header .tabulator-col {
+    border-right: 1px solid #e9ecef !important;
+}
+
+.tabulator-header .tabulator-col:last-child {
+    border-right: none !important;
+}
+
+.tabulator-header .tabulator-col-group {
+    background-color: #f5f5f5 !important;
+    font-weight: bold !important;
+    border-bottom: 2px solid #ddd !important;
+}
+
+.tabulator-row {
+    border-bottom: 1px solid #e9ecef !important;
+}
+
+.tabulator-row:last-child {
+    border-bottom: none !important;
+}
+
+.tabulator-row:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* 表格单元格内边距优化 */
+.tabulator-cell, .tabulator-header .tabulator-col-content {
+    padding: 6px 4px !important;
+    font-size: 0.85em !important;
+}
+
+/* 第一名高亮 */
+.tabulator-row[style*="background-color: rgb(255, 248, 230)"],
+.tabulator-row[style*="background-color: #fff8e6"] {
+    background-color: #fff8e6 !important;
+}
+
+/* 特殊行样式 */
+.tabulator-row[style*="background-color: #e8f5e8"],
+.tabulator-row[style*="rgb(232, 245, 232)"] {
+    background-color: #e8f5e8 !important;
+    font-weight: bold !important;
+}
+
+.tabulator-row[style*="background-color: #fff8e1"],
+.tabulator-row[style*="rgb(255, 248, 225)"] {
+    background-color: #fff8e1 !important;
+    font-weight: bold !important;
+}
+
+.tabulator-row[style*="background-color: #e3f2fd"],
+.tabulator-row[style*="rgb(227, 242, 253)"] {
+    background-color: #e3f2fd !important;
+}
+
+/* 高亮单元格样式 */
+.tabulator-cell[style*="background-color: #ffebee"],
+.tabulator-cell[style*="rgb(255, 235, 238)"] {
+    background-color: #ffebee !important;
+    color: #c62828 !important;
+    font-weight: bold !important;
+}
+
+.tabulator-cell[style*="background-color: #fff8e1"],
+.tabulator-cell[style*="rgb(255, 248, 225)"] {
+    background-color: #fff8e1 !important;
+    font-weight: bold !important;
+}
+
+/* 特殊行边框样式 */
+.tabulator-row[style*="border-top: 2px solid #4CAF50"] {
+    border-top: 2px solid #4CAF50 !important;
+    border-bottom: 2px solid #4CAF50 !important;
+}
+
+.tabulator-row[style*="border-top: 2px solid #FFC107"] {
+    border-top: 2px solid #FFC107 !important;
+    border-bottom: 2px solid #FFC107 !important;
+}
+
+/* 表格滚动区域 */
+.tabulator-tableHolder {
+    overflow-x: hidden !important;  /* 阻止多余横向滚动 */
+    overflow-y: auto !important;    /* 保留纵向滚动 */
+    max-height: 800px;
+}
+
+/* 选项卡样式 */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+    color: #6c757d;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.nav-link:hover {
+    color: #0d6efd;
+}
+
+.nav-link.active {
+    color: #0d6efd;
+    border-bottom: 2px solid #0d6efd;
+}
+
+/* 详细表格下的说明文字 */
+.tab-pane .has-text-centered small {
+    display: block;
+    margin-top: 10px;
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* 滚动条样式 */
+.tabulator-tableHolder::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.tabulator-tableHolder::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.tabulator-tableHolder::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.tabulator-tableHolder::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
