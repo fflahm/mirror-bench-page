@@ -267,27 +267,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const field = cell.getField();
             const cellEl = cell.getElement();
 
-            // 跳过模型名列
+            // 跳过 model 列
             if (field === "model") return;
 
-            const flag = data["highlight_" + field];
-            if (!flag) return;
+            const keyA = "highlight_" + field + "_A";
+            const keyB = "highlight_" + field + "_B";
 
-            // A：最高值（红色）
-            if (flag === "A") {
+            // A：最高值（红色，优先级最高）
+            if (data[keyA]) {
                 cellEl.style.backgroundColor = "#ffebee"; // 浅红
-                cellEl.style.color = "#c62828";           // 深红字
+                cellEl.style.color = "#c62828";           // 深红
                 cellEl.style.fontWeight = "bold";
+                return;
             }
 
             // B：次高值（黄色）
-            else if (flag === "B") {
+            if (data[keyB]) {
                 cellEl.style.backgroundColor = "#fff8e1"; // 浅黄
-                cellEl.style.color = "#ef6c00";           // 深橙字
+                cellEl.style.color = "#ef6c00";           // 深橙
                 cellEl.style.fontWeight = "bold";
+                return;
             }
         });
     }
+
 
 
     // 添加下载按钮
