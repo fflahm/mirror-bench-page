@@ -175,14 +175,6 @@
 
                   <img src="static/images/radar.png" alt="Radar Charts" style="max-width:100%; height:auto; border-radius:8px;">
               </div>
-              <!-- <img src="static/images/fig1.png" alt="A-Bench Overview" width="100%">
-              <div class="work-description" style="margin-top: 20px; margin-bottom: 20px;">
-                <p class="has-text-centered" style="font-size: 1.2rem; line-height: 1.6;">
-                  Existing embodied benchmarks focus on external objectives and largely neglect <em>self-centric intelligence</em>. 
-                  <span style="font-weight: bold; color: #333;">MirrorBench</span> bridges this gap by introducing a mirror-based setup and a 
-                  <em>tiered evaluation protocol</em> assessing MLLMs from visual perception to self-representation.
-                </p>
-              </div> -->
             </div>
           </div>
         </div>
@@ -192,48 +184,24 @@
     <section class="section">
       <div class="container is-max-desktop content">
         <h2 class="title has-text-centered">Benchmark Results</h2>
-        
-        <!-- 选项卡切换 -->
-        <ul class="nav nav-tabs justify-content-center mb-4" id="resultsTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="overall-tab" data-bs-toggle="tab" 
-                    data-bs-target="#overall-results" type="button" role="tab"
-                    aria-controls="overall-results" aria-selected="true">
-              Overall Results
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="detailed-tab" data-bs-toggle="tab" 
-                    data-bs-target="#detailed-results" type="button" role="tab"
-                    aria-controls="detailed-results" aria-selected="false">
-              Detailed Metrics
-            </button>
-          </li>
-        </ul>
 
-        <div class="tab-content" id="myTabContent">
-          <!-- 总体结果表格 -->
-          <div class="tab-pane fade show active" id="overall-results" role="tabpanel">
-            <div id="mirrorbench-overall-table" class="table-container"></div>
-          </div>
-          
-          <!-- 详细结果表格 -->
-          <div class="tab-pane fade" id="detailed-results" role="tabpanel">
-              <div class="table-responsive">
-                  <div id="mirrorbench-detailed-table" class="table-container" style="min-width: 1800px;"></div>
-              </div>
-              <p class="has-text-centered mt-3">
-                  <small>Higher scores (↑) indicate better performance. <strong>Human</strong> row shows expert performance. 
-                  <strong>Random</strong> row shows baseline performance of random policy. 
-                  Red highlights indicate highest scores, yellow highlights indicate second highest scores.</small>
-              </p>
-          </div>
+        <!-- 详细结果表格 -->
+        <div class="table-responsive">
+            <div id="mirrorbench-detailed-table" class="table-container" style="min-width: 1800px;"></div>
+        </div>
+        
+        <p class="has-text-centered mt-3">
+            <small>Higher scores (↑) indicate better performance. <strong>Human</strong> row shows expert performance. 
+            <strong>Random</strong> row shows baseline performance of random policy. 
+            Red highlights indicate highest scores, yellow highlights indicate second highest scores.</small>
+        </p>
 
         <p class="has-text-centered mt-3">
           <small>Higher scores indicate better performance. Results are averaged across multiple evaluation runs.</small>
         </p>
       </div>
     </section>
+
 
     <footer class="footer">
       <div class="container">
