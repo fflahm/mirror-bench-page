@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 列定义 - 按照你的LaTeX表格结构
         columns: [
-            {title: "Model", field: "model", width: 220, headerFilter: true}, // frozen: true 可以根据需要添加
+            {title: "Model", field: "model", width: 220, headerFilter: true},
             
             // Human 列
             {title: "Human", headerHozAlign: "center", columns: [
@@ -123,13 +123,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 {title: "AVG↑", field: "robot_avg", width: 80, hozAlign: "center", formatter: valueFormatter}
             ]},
             
-            // Overall 列
+            // Overall 列 - 关键修复：为AVG列添加数值排序器
             {title: "Overall", headerHozAlign: "center", columns: [
                 {title: "TSR↑", field: "overall_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, formatterParams: {is_tsr: true}},
                 {title: "SIR↑", field: "overall_sir", width: 80, hozAlign: "center", formatter: valueFormatter},
                 {title: "FCR↑", field: "overall_fcr", width: 80, hozAlign: "center", formatter: valueFormatter},
                 {title: "PCR↑", field: "overall_pcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "overall_avg", width: 80, hozAlign: "center", formatter: valueFormatter, frozen: true}
+                // 修复：添加sorter: "number" 确保正确数值排序
+                {title: "AVG↑", field: "overall_avg", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"}
             ]}
         ],
         
@@ -231,6 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 添加下载按钮
     addDownloadButton();
+    
+    // 表格构建完成后修复布局
     detailedTable.on("tableBuilt", function() {
         fixTableLayout();
     });
@@ -252,7 +255,7 @@ function addDownloadButton() {
     }
 }
 
-// 添加在文件末尾
+// 修复表格布局
 function fixTableLayout() {
     setTimeout(() => {
         const table = document.querySelector('.tabulator-table');
