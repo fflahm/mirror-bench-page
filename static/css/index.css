@@ -137,8 +137,7 @@ body {
 /* 修复多级表头嵌套问题 */
 .tabulator-header .tabulator-col-group .tabulator-col-group-cols {
     display: flex !important;
-    flex-wrap: nowrap !important;
-    min-width: 400px !important; /* 确保足够的宽度 */
+    flex-wrap: nowrap !important; /* 保留 nowrap 保证列在一行 */
 }
 
 /* 修复表头行高度 */
@@ -277,9 +276,9 @@ body {
 
 /* 表格滚动区域 */
 .tabulator-tableHolder {
-    overflow-x: auto !important;
-    overflow-y: auto !important;
-    max-height: 800px;
+    overflow-x: visible !important;   /* 允许表格自己决定宽度，不出现横向滚动条 */
+    overflow-y: auto !important;      /* 纵向滚动条保留 */
+    max-height: 800px;                 /* 保留表格最大高度限制 */
 }
 
 /* 选项卡样式 */
