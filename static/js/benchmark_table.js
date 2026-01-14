@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // 创建详细结果表格
+    const colWidth = 80; 
     const detailedTable = new Tabulator("#mirrorbench-detailed-table", { // 与html中的div id对应
         data: detailedData,
         layout: "fitColumns",
@@ -108,29 +109,29 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 其余列使用fitData，让Tabulator自适应
             {title: "Human", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "human_tsr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "SIR↑", field: "human_sir", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "FCR↑", field: "human_fcr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "PCR↑", field: "human_pcr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "AVG↑", field: "human_avg", hozAlign: "center", formatter: valueFormatter, width: 40}
+                {title: "TSR↑", field: "human_tsr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "SIR↑", field: "human_sir", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "FCR↑", field: "human_fcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "PCR↑", field: "human_pcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "AVG↑", field: "human_avg", hozAlign: "center", formatter: valueFormatter, width: colWidth}
             ]},
             
             // Robot 列同样
             {title: "Robot", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "robot_tsr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "SIR↑", field: "robot_sir", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "FCR↑", field: "robot_fcr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "PCR↑", field: "robot_pcr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "AVG↑", field: "robot_avg", hozAlign: "center", formatter: valueFormatter, width: 40}
+                {title: "TSR↑", field: "robot_tsr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "SIR↑", field: "robot_sir", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "FCR↑", field: "robot_fcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "PCR↑", field: "robot_pcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "AVG↑", field: "robot_avg", hozAlign: "center", formatter: valueFormatter, width: colWidth}
             ]},
             
             // Overall 列
             {title: "Overall", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "overall_tsr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "SIR↑", field: "overall_sir", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "FCR↑", field: "overall_fcr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "PCR↑", field: "overall_pcr", hozAlign: "center", formatter: valueFormatter, width: 40},
-                {title: "AVG↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter, width: 40}
+                {title: "TSR↑", field: "overall_tsr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "SIR↑", field: "overall_sir", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "FCR↑", field: "overall_fcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "PCR↑", field: "overall_pcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
+                {title: "AVG↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter, width: colWidth}
             ]}
         ],
 
