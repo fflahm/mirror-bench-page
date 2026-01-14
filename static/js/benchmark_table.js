@@ -275,16 +275,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // A：最高值（红色，优先级最高）
             if (data[keyA]) {
-                cellEl.style.backgroundColor = "#4472c4";
-                // cellEl.style.color = "#c62828";
+                // cellEl.style.backgroundColor = "#4472c4";
+                cellEl.style.color = "#4472c4";
                 cellEl.style.fontWeight = "bold";
                 return;
             }
 
             // B：次高值（黄色）
             if (data[keyB]) {
-                cellEl.style.backgroundColor = "#E76254";
-                // cellEl.style.color = "#ef6c00";
+                // cellEl.style.backgroundColor = "#E76254";
+                cellEl.style.color = "#E76254";
                 cellEl.style.fontWeight = "bold";
                 return;
             }
