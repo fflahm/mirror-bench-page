@@ -143,21 +143,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Human行特殊样式
             if (data.is_human) {
-                rowEl.style.backgroundColor = "#e8f5e8";
-                rowEl.style.fontWeight = "bold";
-                rowEl.style.borderTop = "2px solid #4CAF50";
-                rowEl.style.borderBottom = "2px solid #4CAF50";
+                rowEl.style.backgroundColor = "#e0e0e0";
             }
             // Random行特殊样式
             else if (data.is_random) {
-                rowEl.style.backgroundColor = "#fff8e1";
-                rowEl.style.fontWeight = "bold";
-                rowEl.style.borderTop = "2px solid #FFC107";
-                rowEl.style.borderBottom = "2px solid #FFC107";
-            }
-            // API模型特殊样式
-            else if (data.model.includes("-API")) {
-                rowEl.style.backgroundColor = "#e3f2fd";
+                rowEl.style.backgroundColor = "#f5f5f5";
             }
             
             // 高亮最高和次高值
