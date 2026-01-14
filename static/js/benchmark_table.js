@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 创建详细结果表格
     const detailedTable = new Tabulator("#mirrorbench-detailed-table", { // 与html中的div id对应
         data: detailedData,
-        layout: "fitDataStretch",  // 自适应宽度
+        layout: "fitColumns",
         responsiveLayout: "collapse",
         placeholder: "No Data Available",
         height: "100%",
@@ -103,36 +103,37 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 列定义 - 按照你的LaTeX表格结构
         columns: [
-            {title: "Model", field: "model", headerFilter: true, frozen: true},
-            // {title: "Model", field: "model", width: 220, headerFilter: true, frozen: true},
+            // 固定第一列宽度，不拉伸
+            {title: "Model", field: "model", width: 200, hozAlign: "left", frozen: true, headerFilter: true},
             
-            // Human 列
+            // 其余列使用fitData，让Tabulator自适应
             {title: "Human", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "human_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, formatterParams: {is_tsr: true}},
-                {title: "SIR↑", field: "human_sir", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "FCR↑", field: "human_fcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "PCR↑", field: "human_pcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "human_avg", width: 80, hozAlign: "center", formatter: valueFormatter}
+                {title: "TSR↑", field: "human_tsr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "SIR↑", field: "human_sir", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "FCR↑", field: "human_fcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "PCR↑", field: "human_pcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "AVG↑", field: "human_avg", hozAlign: "center", formatter: valueFormatter, minWidth: 60}
             ]},
             
-            // Robot 列
+            // Robot 列同样
             {title: "Robot", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "robot_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, formatterParams: {is_tsr: true}},
-                {title: "SIR↑", field: "robot_sir", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "FCR↑", field: "robot_fcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "PCR↑", field: "robot_pcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "robot_avg", width: 80, hozAlign: "center", formatter: valueFormatter}
+                {title: "TSR↑", field: "robot_tsr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "SIR↑", field: "robot_sir", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "FCR↑", field: "robot_fcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "PCR↑", field: "robot_pcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "AVG↑", field: "robot_avg", hozAlign: "center", formatter: valueFormatter, minWidth: 60}
             ]},
             
             // Overall 列
             {title: "Overall", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "overall_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, formatterParams: {is_tsr: true}},
-                {title: "SIR↑", field: "overall_sir", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "FCR↑", field: "overall_fcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "PCR↑", field: "overall_pcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "overall_avg", width: 80, hozAlign: "center", formatter: valueFormatter, frozen: true}
+                {title: "TSR↑", field: "overall_tsr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "SIR↑", field: "overall_sir", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "FCR↑", field: "overall_fcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "PCR↑", field: "overall_pcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
+                {title: "AVG↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter, minWidth: 60, frozen: true}
             ]}
-        ],
+        ]
+
         
         // 行格式化
         rowFormatter: function(row) {

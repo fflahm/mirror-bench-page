@@ -160,8 +160,8 @@ body {
 /* 修复表格容器宽度 */
 #mirrorbench-detailed-table {
     width: 100% !important;
-    overflow-x: visible !important; /* 不出现滚动条 */
-    min-width: unset !important;    /* 不强制最小宽度 */
+    /* overflow-x: visible !important;
+    min-width: unset !important; */
 }
 
 /* 表格容器样式 */
