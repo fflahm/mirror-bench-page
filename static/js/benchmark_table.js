@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const colWidth = 75; 
     const detailedTable = new Tabulator("#mirrorbench-detailed-table", { // 与html中的div id对应
         data: detailedData,
-        layout: "fitColumns",
+        layout: "fitData",
         responsiveLayout: "collapse",
         placeholder: "No Data Available",
         height: "100%",
