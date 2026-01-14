@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 创建详细结果表格
     const detailedTable = new Tabulator("#mirrorbench-detailed-table", { // 与html中的div id对应
         data: detailedData,
-        layout: "fitColumns",
+        layout: "fitDataStretch",  // 自适应宽度
         responsiveLayout: "collapse",
         placeholder: "No Data Available",
         height: "100%",
