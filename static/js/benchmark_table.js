@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // 创建详细结果表格
-    const colWidth = 75; 
+    // const colWidth = 75; 
     const detailedTable = new Tabulator("#mirrorbench-detailed-table", { // 与html中的div id对应
         data: detailedData,
         layout: "fitColumns",
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 {title: "S↑", field: "overall_sir", hozAlign: "center", formatter: valueFormatter},
                 {title: "F↑", field: "overall_fcr", hozAlign: "center", formatter: valueFormatter},
                 {title: "P↑", field: "overall_pcr", hozAlign: "center", formatter: valueFormatter},
-                {title: "A↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter}
+                {title: "A↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter, sorter: "number"}
             ]}
         ],
 
