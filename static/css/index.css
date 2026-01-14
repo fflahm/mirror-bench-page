@@ -117,15 +117,15 @@ body {
 
 /* Tabulator 表格字体设置 */
 #mirrorbench-detailed-table .tabulator {
-    font-size: 13px;                      /* 桌面端字体大小 */
+    font-size: 10px;                      /* 桌面端字体大小 */
 }
 
 #mirrorbench-detailed-table .tabulator-header .tabulator-col-content {
-    font-size: 13px;                      /* 列头字体 */
+    font-size: 10px;                      /* 列头字体 */
 }
 
 #mirrorbench-detailed-table .tabulator-cell {
-    font-size: 13px;                      /* 单元格字体 */
+    font-size: 10px;                      /* 单元格字体 */
 }
 
 /* ===== 响应式优化 ===== */
