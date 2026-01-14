@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {title: "Model", field: "model", width: 150, hozAlign: "left", headerFilter: true},
             
             // 其余列使用fitData，让Tabulator自适应
-            {title: "Human", headerHozAlign: "center", width: 5 * colWidth, columns: [
+            {title: "Human", headerHozAlign: "center", columns: [
                 {title: "TSR↑", field: "human_tsr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
                 {title: "SIR↑", field: "human_sir", hozAlign: "center", formatter: valueFormatter, width: colWidth},
                 {title: "FCR↑", field: "human_fcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]},
             
             // Robot 列同样
-            {title: "Robot", headerHozAlign: "center", width: 5 * colWidth, columns: [
+            {title: "Robot", headerHozAlign: "center", columns: [
                 {title: "TSR↑", field: "robot_tsr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
                 {title: "SIR↑", field: "robot_sir", hozAlign: "center", formatter: valueFormatter, width: colWidth},
                 {title: "FCR↑", field: "robot_fcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]},
             
             // Overall 列
-            {title: "Overall", headerHozAlign: "center", width: 5 * colWidth, columns: [
+            {title: "Overall", headerHozAlign: "center", columns: [
                 {title: "TSR↑", field: "overall_tsr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
                 {title: "SIR↑", field: "overall_sir", hozAlign: "center", formatter: valueFormatter, width: colWidth},
                 {title: "FCR↑", field: "overall_fcr", hozAlign: "center", formatter: valueFormatter, width: colWidth},
