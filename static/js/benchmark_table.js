@@ -103,33 +103,32 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 列定义 - 按照你的LaTeX表格结构
         columns: [
-            {title: "Model", field: "model", width: 220, headerFilter: true},
+            {title: "Model", field: "model", width: 220, headerFilter: true}, // frozen: true 可以根据需要添加
             
             // Human 列
             {title: "Human", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "human_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, formatterParams: {is_tsr: true}},
-                {title: "SIR↑", field: "human_sir", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "FCR↑", field: "human_fcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "PCR↑", field: "human_pcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "human_avg", width: 80, hozAlign: "center", formatter: valueFormatter}
+                {title: "TSR↑", field: "human_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "SIR↑", field: "human_sir", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "FCR↑", field: "human_fcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "PCR↑", field: "human_pcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "AVG↑", field: "human_avg", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"}
             ]},
             
             // Robot 列
             {title: "Robot", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "robot_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, formatterParams: {is_tsr: true}},
-                {title: "SIR↑", field: "robot_sir", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "FCR↑", field: "robot_fcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "PCR↑", field: "robot_pcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "robot_avg", width: 80, hozAlign: "center", formatter: valueFormatter}
+                {title: "TSR↑", field: "robot_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "SIR↑", field: "robot_sir", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "FCR↑", field: "robot_fcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "PCR↑", field: "robot_pcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "AVG↑", field: "robot_avg", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"}
             ]},
             
-            // Overall 列 - 关键修复：为AVG列添加数值排序器
+            // Overall 列
             {title: "Overall", headerHozAlign: "center", columns: [
-                {title: "TSR↑", field: "overall_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, formatterParams: {is_tsr: true}},
-                {title: "SIR↑", field: "overall_sir", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "FCR↑", field: "overall_fcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                {title: "PCR↑", field: "overall_pcr", width: 80, hozAlign: "center", formatter: valueFormatter},
-                // 修复：添加sorter: "number" 确保正确数值排序
+                {title: "TSR↑", field: "overall_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "SIR↑", field: "overall_sir", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "FCR↑", field: "overall_fcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
+                {title: "PCR↑", field: "overall_pcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
                 {title: "AVG↑", field: "overall_avg", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"}
             ]}
         ],
@@ -232,8 +231,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 添加下载按钮
     addDownloadButton();
-    
-    // 表格构建完成后修复布局
     detailedTable.on("tableBuilt", function() {
         fixTableLayout();
     });
@@ -255,7 +252,7 @@ function addDownloadButton() {
     }
 }
 
-// 修复表格布局
+// 添加在文件末尾
 function fixTableLayout() {
     setTimeout(() => {
         const table = document.querySelector('.tabulator-table');
