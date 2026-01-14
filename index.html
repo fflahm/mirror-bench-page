@@ -306,4 +306,82 @@
     width: 16.6%;
     padding: 5px;
   }
+  .benchmark-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  }
+
+  .benchmark-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px 8px;
+    border-bottom: 2px solid #e9ecef;
+  }
+
+  .benchmark-table td {
+    padding: 10px 8px;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .benchmark-table tbody tr {
+    transition: background-color 0.2s;
+  }
+
+  .benchmark-table tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+
+  .benchmark-table tbody tr:first-child td {
+    border-top: 1px solid #e9ecef;
+  }
+
+  /* 第一名高亮显示 */
+  .benchmark-table .first-place td {
+    background-color: #fff8e6;
+    font-weight: 600;
+  }
+
+  .benchmark-table .first-place td:first-child {
+    background-color: #ffecb3;
+  }
+
+  /* 表头分组样式 */
+  .benchmark-table th[colspan="2"],
+  .benchmark-table th[colspan="3"],
+  .benchmark-table th[colspan="4"] {
+    background-color: #e9ecef;
+    color: #333;
+    font-weight: 700;
+  }
+
+  /* 响应式设计 */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  /* 移动设备优化 */
+  @media (max-width: 768px) {
+    .benchmark-table {
+      font-size: 0.8em;
+    }
+    
+    .benchmark-table th,
+    .benchmark-table td {
+      padding: 6px 4px;
+    }
+    
+    .benchmark-table th[colspan]:not([colspan="1"]) {
+      display: none;
+    }
+  }
 </style>
