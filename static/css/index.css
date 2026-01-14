@@ -276,9 +276,9 @@ body {
 
 /* 表格滚动区域 */
 .tabulator-tableHolder {
-    overflow-x: visible !important;   /* 允许表格自己决定宽度，不出现横向滚动条 */
-    overflow-y: auto !important;      /* 纵向滚动条保留 */
-    max-height: 800px;                 /* 保留表格最大高度限制 */
+    overflow-x: hidden !important;  /* 阻止多余横向滚动 */
+    overflow-y: auto !important;    /* 保留纵向滚动 */
+    max-height: 800px;
 }
 
 /* 选项卡样式 */
