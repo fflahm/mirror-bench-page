@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 创建详细结果表格
     const detailedTable = new Tabulator("#mirrorbench-detailed-table", {
-        data: detailedData,
+         detailedData,
         layout: "fitColumns",
         responsiveLayout: "collapse",
         placeholder: "No Data Available",
@@ -101,12 +101,28 @@ document.addEventListener('DOMContentLoaded', function() {
         virtualDom: true,
         virtualDomBuffer: 1000,
         
-        // 列定义 - 按照你的LaTeX表格结构
+        // 关键修复：增加表头高度
+        tableBuilding: function() {
+            console.log("Table building started");
+        },
+        
+        tableBuilt: function() {
+            console.log("Table built successfully");
+            // 强制应用表头高度
+            setTimeout(() => {
+                const headerRows = document.querySelectorAll('.tabulator-header .tabulator-header-row');
+                headerRows.forEach(row => {
+                    row.style.height = '40px';
+                });
+            }, 100);
+        },
+        
+        // 列定义 - 保持原有结构
         columns: [
-            {title: "Model", field: "model", width: 220, headerFilter: true}, // frozen: true 可以根据需要添加
+            {title: "Model", field: "model", width: 220, headerFilter: true},
             
             // Human 列
-            {title: "Human", headerHozAlign: "center", columns: [
+            {title: "Human", headerHozAlign: "center", headerSort: false, columns: [
                 {title: "TSR↑", field: "human_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
                 {title: "SIR↑", field: "human_sir", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
                 {title: "FCR↑", field: "human_fcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
@@ -115,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]},
             
             // Robot 列
-            {title: "Robot", headerHozAlign: "center", columns: [
+            {title: "Robot", headerHozAlign: "center", headerSort: false, columns: [
                 {title: "TSR↑", field: "robot_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
                 {title: "SIR↑", field: "robot_sir", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
                 {title: "FCR↑", field: "robot_fcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
@@ -124,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]},
             
             // Overall 列
-            {title: "Overall", headerHozAlign: "center", columns: [
+            {title: "Overall", headerHozAlign: "center", headerSort: false, columns: [
                 {title: "TSR↑", field: "overall_tsr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
                 {title: "SIR↑", field: "overall_sir", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
                 {title: "FCR↑", field: "overall_fcr", width: 80, hozAlign: "center", formatter: valueFormatter, sorter: "number"},
@@ -172,8 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let value = cell.getValue();
         if (value === null || value === undefined) return "";
         
-        // TSR列保留3位小数，其他列保留3位小数
-        let formattedValue = params.is_tsr ? value.toFixed(3) : value.toFixed(3);
+        let formattedValue = value.toFixed(3);
         
         // 特殊值处理
         if (Math.abs(value) < 0.0005 && value !== 0) {
@@ -231,8 +246,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 添加下载按钮
     addDownloadButton();
+    
+    // 强化布局修复
     detailedTable.on("tableBuilt", function() {
-        fixTableLayout();
+        console.log("Running enhanced layout fix");
+        fixTableLayout(true);
     });
 });
 
@@ -242,31 +260,57 @@ function addDownloadButton() {
     downloadBtn.className = 'btn btn-sm btn-outline-secondary mb-3';
     downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download CSV';
     downloadBtn.onclick = function() {
-        // 这里需要实现CSV导出功能
         alert('CSV download functionality needs to be implemented');
     };
     
     const tableContainer = document.querySelector('#mirrorbench-detailed-table');
     if (tableContainer && tableContainer.parentElement) {
-        tableContainer.parentElement.insertBefore(downloadBtn, tableContainer);
+        // 确保按钮只添加一次
+        if (!tableContainer.parentElement.querySelector('.download-btn-container')) {
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'download-btn-container';
+            buttonContainer.appendChild(downloadBtn);
+            tableContainer.parentElement.insertBefore(buttonContainer, tableContainer);
+        }
     }
 }
 
-// 添加在文件末尾
-function fixTableLayout() {
+// 强化表格布局修复
+function fixTableLayout(force = false) {
+    console.log("Applying table layout fix, force mode:", force);
+    
     setTimeout(() => {
         const table = document.querySelector('.tabulator-table');
+        const header = document.querySelector('.tabulator-header');
+        
         if (table) {
-            // 强制重新计算布局
-            table.style.width = 'auto';
-            table.style.minWidth = '1800px';
+            console.log("Table found, applying fixes");
             
-            // 修复表头
-            const headers = document.querySelectorAll('.tabulator-header .tabulator-col');
-            headers.forEach(header => {
-                header.style.minWidth = '80px';
-                header.style.width = '80px';
-            });
+            // 强制设置最小宽度
+            table.style.minWidth = '1800px';
+            table.style.width = 'auto';
+            
+            if (header) {
+                // 确保表头有足够的高度
+                const headerRows = header.querySelectorAll('.tabulator-header-row');
+                headerRows.forEach((row, index) => {
+                    row.style.height = '40px';
+                    console.log(`Header row ${index} height set to 40px`);
+                });
+                
+                // 确保所有列标题正确显示
+                const headers = header.querySelectorAll('.tabulator-col');
+                headers.forEach(header => {
+                    header.style.minWidth = '80px';
+                    header.style.width = '80px';
+                    
+                    // 强制显示标题文本
+                    const titleElement = header.querySelector('.tabulator-col-content');
+                    if (titleElement && titleElement.textContent.trim() === '') {
+                        console.warn("Empty header title found, checking parent");
+                    }
+                });
+            }
             
             // 修复单元格
             const cells = document.querySelectorAll('.tabulator-cell');
@@ -274,6 +318,18 @@ function fixTableLayout() {
                 cell.style.minWidth = '80px';
                 cell.style.width = '80px';
             });
+            
+            console.log("Layout fix completed successfully");
+        } else {
+            console.warn("Table element not found, retrying...");
+            if (force) {
+                setTimeout(() => fixTableLayout(false), 500);
+            }
         }
-    }, 500);
+    }, 300);
 }
+
+// 添加全局调试信息
+console.log("Benchmark table script loaded");
+console.log("Tabulator version:", Tabulator.version);
+console.log("Table container exists:", !!document.querySelector('#mirrorbench-detailed-table'));
