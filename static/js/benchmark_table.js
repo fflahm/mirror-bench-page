@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 列定义 - 按照你的LaTeX表格结构
         columns: [
             // 固定第一列宽度，不拉伸
-            {title: "Model", field: "model", width: 200, hozAlign: "left", frozen: true, headerFilter: true},
+            {title: "Model", field: "model", width: 200, hozAlign: "left", headerFilter: true},
             
             // 其余列使用fitData，让Tabulator自适应
             {title: "Human", headerHozAlign: "center", columns: [
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 {title: "SIR↑", field: "overall_sir", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
                 {title: "FCR↑", field: "overall_fcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
                 {title: "PCR↑", field: "overall_pcr", hozAlign: "center", formatter: valueFormatter, minWidth: 60},
-                {title: "AVG↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter, minWidth: 60, frozen: true}
+                {title: "AVG↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter, minWidth: 60}
             ]}
         ],
 
