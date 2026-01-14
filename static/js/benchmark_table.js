@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // 创建详细结果表格
-    const colWidth = 77; 
+    const colWidth = 75; 
     const detailedTable = new Tabulator("#mirrorbench-detailed-table", { // 与html中的div id对应
         data: detailedData,
         layout: "fitColumns",
