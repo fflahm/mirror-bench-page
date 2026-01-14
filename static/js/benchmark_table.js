@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 {title: "S↑", field: "human_sir", hozAlign: "center", formatter: valueFormatter},
                 {title: "F↑", field: "human_fcr", hozAlign: "center", formatter: valueFormatter},
                 {title: "P↑", field: "human_pcr", hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "human_avg", hozAlign: "center", formatter: valueFormatter}
+                {title: "A↑", field: "human_avg", hozAlign: "center", formatter: valueFormatter}
             ]},
             
             // Robot 列同样
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 {title: "S↑", field: "robot_sir", hozAlign: "center", formatter: valueFormatter},
                 {title: "F↑", field: "robot_fcr", hozAlign: "center", formatter: valueFormatter},
                 {title: "P↑", field: "robot_pcr", hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "robot_avg", hozAlign: "center", formatter: valueFormatter}
+                {title: "A↑", field: "robot_avg", hozAlign: "center", formatter: valueFormatter}
             ]},
             
             // Overall 列
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 {title: "S↑", field: "overall_sir", hozAlign: "center", formatter: valueFormatter},
                 {title: "F↑", field: "overall_fcr", hozAlign: "center", formatter: valueFormatter},
                 {title: "P↑", field: "overall_pcr", hozAlign: "center", formatter: valueFormatter},
-                {title: "AVG↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter}
+                {title: "A↑", field: "overall_avg", hozAlign: "center", formatter: valueFormatter}
             ]}
         ],
 

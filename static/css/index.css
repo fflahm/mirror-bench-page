@@ -121,7 +121,7 @@ body {
 }
 
 #mirrorbench-detailed-table .tabulator-header .tabulator-col-content {
-    font-size: 11px;                      /* 列头字体 */
+    font-size: 12px;                      /* 列头字体 */
 }
 
 /* ===== 响应式优化 ===== */
