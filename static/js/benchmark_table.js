@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 列定义 - 按照你的LaTeX表格结构
         columns: [
-            {title: "Model", field: "model", width: 220, headerFilter: true, frozen: true},
+            {title: "Model", field: "model", width: 220, headerFilter: true}, // frozen: true 可以根据需要添加
             
             // Human 列
             {title: "Human", headerHozAlign: "center", columns: [
@@ -231,6 +231,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 添加下载按钮
     addDownloadButton();
+    detailedTable.on("tableBuilt", function() {
+        fixTableLayout();
+    });
 });
 
 // 添加下载按钮
@@ -247,4 +250,30 @@ function addDownloadButton() {
     if (tableContainer && tableContainer.parentElement) {
         tableContainer.parentElement.insertBefore(downloadBtn, tableContainer);
     }
+}
+
+// 添加在文件末尾
+function fixTableLayout() {
+    setTimeout(() => {
+        const table = document.querySelector('.tabulator-table');
+        if (table) {
+            // 强制重新计算布局
+            table.style.width = 'auto';
+            table.style.minWidth = '1800px';
+            
+            // 修复表头
+            const headers = document.querySelectorAll('.tabulator-header .tabulator-col');
+            headers.forEach(header => {
+                header.style.minWidth = '80px';
+                header.style.width = '80px';
+            });
+            
+            // 修复单元格
+            const cells = document.querySelectorAll('.tabulator-cell');
+            cells.forEach(cell => {
+                cell.style.minWidth = '80px';
+                cell.style.width = '80px';
+            });
+        }
+    }, 500);
 }

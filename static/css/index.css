@@ -133,9 +133,44 @@ body {
 }
 
 
-/* =================== 表格样式 (新增) =================== */
+/* =================== 表格样式 (修复版) =================== */
 
-/* 表格容器样式 - 保持原有定义 */
+/* 修复表头布局问题 */
+.tabulator .tabulator-header {
+    min-height: 60px !important;
+}
+
+/* 修复多级表头嵌套问题 */
+.tabulator-header .tabulator-col-group .tabulator-col-group-cols {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    min-width: 400px !important; /* 确保足够的宽度 */
+}
+
+/* 修复表头行高度 */
+.tabulator-header .tabulator-header-row:first-child {
+    height: 30px !important;
+}
+
+.tabulator-header .tabulator-header-row:last-child {
+    height: 30px !important;
+}
+
+/* 确保所有单元格正确对齐 */
+.tabulator-table .tabulator-row .tabulator-cell {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* 修复表格容器宽度 */
+#mirrorbench-detailed-table {
+    width: 100% !important;
+    overflow-x: auto !important;
+    min-width: 1800px !important; /* 确保足够宽度显示所有列 */
+}
+
+/* 表格容器样式 */
 .table-container {
     margin: 20px 0;
     border: 1px solid #e9ecef;
@@ -187,13 +222,19 @@ body {
     background-color: #f8f9fa !important;
 }
 
-/* 第一名高亮 - 修改为更柔和的颜色 */
+/* 表格单元格内边距优化 */
+.tabulator-cell, .tabulator-header .tabulator-col-content {
+    padding: 6px 4px !important;
+    font-size: 0.85em !important;
+}
+
+/* 第一名高亮 */
 .tabulator-row[style*="background-color: rgb(255, 248, 230)"],
 .tabulator-row[style*="background-color: #fff8e6"] {
     background-color: #fff8e6 !important;
 }
 
-/* 特殊行样式 (新增) */
+/* 特殊行样式 */
 .tabulator-row[style*="background-color: #e8f5e8"],
 .tabulator-row[style*="rgb(232, 245, 232)"] {
     background-color: #e8f5e8 !important;
@@ -211,7 +252,7 @@ body {
     background-color: #e3f2fd !important;
 }
 
-/* 高亮单元格样式 (新增) */
+/* 高亮单元格样式 */
 .tabulator-cell[style*="background-color: #ffebee"],
 .tabulator-cell[style*="rgb(255, 235, 238)"] {
     background-color: #ffebee !important;
@@ -225,35 +266,25 @@ body {
     font-weight: bold !important;
 }
 
-/* 冻结列样式 (新增) */
-.tabulator-frozen {
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1) !important;
-    z-index: 10 !important;
+/* 特殊行边框样式 */
+.tabulator-row[style*="border-top: 2px solid #4CAF50"] {
+    border-top: 2px solid #4CAF50 !important;
+    border-bottom: 2px solid #4CAF50 !important;
 }
 
-/* 详细表格容器 (新增) */
-#mirrorbench-detailed-table {
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
+.tabulator-row[style*="border-top: 2px solid #FFC107"] {
+    border-top: 2px solid #FFC107 !important;
+    border-bottom: 2px solid #FFC107 !important;
 }
 
-/* 表格滚动区域 (新增) */
+/* 表格滚动区域 */
 .tabulator-tableHolder {
     overflow-x: auto !important;
     overflow-y: auto !important;
     max-height: 800px;
 }
 
-/* 进度条样式优化 */
-.tabulator-progress-bar {
-    height: 16px !important;
-    border-radius: 8px !important;
-    background-color: #e9ecef !important;
-}
-
-/* 选项卡样式 - 与原有样式兼容 */
+/* 选项卡样式 */
 .nav-tabs {
     border-bottom: 2px solid #dee2e6;
     margin-bottom: 20px;
@@ -276,30 +307,6 @@ body {
 .nav-link.active {
     color: #0d6efd;
     border-bottom: 2px solid #0d6efd;
-}
-
-/* 下载按钮样式 (新增) */
-.download-btn-container {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    border-radius: 0.2rem;
-}
-
-.btn-outline-secondary {
-    color: #6c757d;
-    border-color: #6c757d;
-}
-
-.btn-outline-secondary:hover {
-    color: white;
-    background-color: #6c757d;
-    border-color: #6c757d;
 }
 
 /* 响应式设计优化 */
@@ -335,7 +342,7 @@ body {
     }
 }
 
-/* 详细表格下的说明文字 (新增) */
+/* 详细表格下的说明文字 */
 .tab-pane .has-text-centered small {
     display: block;
     margin-top: 10px;
@@ -344,7 +351,7 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
-/* 滚动条样式 (新增) */
+/* 滚动条样式 */
 .tabulator-tableHolder::-webkit-scrollbar {
     height: 8px;
     width: 8px;
@@ -362,24 +369,4 @@ body {
 
 .tabulator-tableHolder::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
-
-/* 表格单元格内边距优化 (新增) */
-.tabulator-cell {
-    padding: 8px !important;
-}
-
-.tabulator-header .tabulator-col-content {
-    padding: 8px !important;
-}
-
-/* 特殊行边框样式 (新增) */
-.tabulator-row[style*="border-top: 2px solid #4CAF50"] {
-    border-top: 2px solid #4CAF50 !important;
-    border-bottom: 2px solid #4CAF50 !important;
-}
-
-.tabulator-row[style*="border-top: 2px solid #FFC107"] {
-    border-top: 2px solid #FFC107 !important;
-    border-bottom: 2px solid #FFC107 !important;
 }
