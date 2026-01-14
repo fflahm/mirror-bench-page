@@ -189,10 +189,14 @@
           
           <!-- 详细结果表格 -->
           <div class="tab-pane fade" id="detailed-results" role="tabpanel">
-            <div id="mirrorbench-detailed-table" class="table-container"></div>
+              <div id="mirrorbench-detailed-table" class="table-container"></div>
+              <p class="has-text-centered mt-3">
+                  <small>Higher scores (↑) indicate better performance. <strong>Human</strong> row shows expert performance. 
+                  <strong>Random</strong> row shows baseline performance of random policy. 
+                  Red highlights indicate highest scores, yellow highlights indicate second highest scores.</small>
+              </p>
           </div>
-        </div>
-        
+
         <p class="has-text-centered mt-3">
           <small>Higher scores indicate better performance. Results are averaged across multiple evaluation runs.</small>
         </p>
@@ -229,4 +233,3 @@
     <script src="static/js/benchmark_table.js" type="module"></script>
   </body>
 </html>
-
