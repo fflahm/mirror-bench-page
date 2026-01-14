@@ -141,17 +141,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = row.getData();
             const rowEl = row.getElement();
             
-            // // Human行特殊样式
-            // if (data.is_human) {
-            //     rowEl.style.backgroundColor = "#e0e0e0";
-            // }
-            // // Random行特殊样式
-            // else if (data.is_random) {
-            //     rowEl.style.backgroundColor = "#f5f5f5";
-            // }
+            // Human行特殊样式
+            if (data.is_human) {
+                rowEl.style.borderTop = "2px dashed #000";
+                rowEl.style.borderBottom = "2px dashed #000";
+            }
+            // Random行特殊样式
+            else if (data.is_random) {
+                rowEl.style.borderTop = "2px dashed #000";
+                rowEl.style.borderBottom = "2px dashed #000";
+            }
             
-            // // 高亮最高和次高值
-            // applyHighlightStyling(row, data);
+            // 高亮最高和次高值
+            applyHighlightStyling(row, data);
         },
         
         // 排序
