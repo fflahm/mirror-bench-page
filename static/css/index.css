@@ -28,9 +28,6 @@ body {
 }
 
 
-.publication-title {
-}
-
 .publication-banner {
   max-height: parent;
 }
@@ -64,9 +61,6 @@ body {
     color: #ff3860;
     width: fit-content;
     font-weight: bolder;
-}
-
-.publication-authors {
 }
 
 .publication-authors a {
@@ -166,8 +160,8 @@ body {
 /* 修复表格容器宽度 */
 #mirrorbench-detailed-table {
     width: 100% !important;
-    overflow-x: auto !important;
-    min-width: 1800px !important; /* 确保足够宽度显示所有列 */
+    /* overflow-x: auto !important;
+    min-width: 1800px !important;*/
 }
 
 /* 表格容器样式 */

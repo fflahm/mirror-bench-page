@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // 创建详细结果表格
-    const detailedTable = new Tabulator("#mirrorbench-detailed-table", {
+    const detailedTable = new Tabulator("#mirrorbench-detailed-table", { // 与html中的div id对应
         data: detailedData,
         layout: "fitColumns",
         responsiveLayout: "collapse",
@@ -103,7 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 列定义 - 按照你的LaTeX表格结构
         columns: [
-            {title: "Model", field: "model", width: 220, headerFilter: true, frozen: true},
+            {title: "Model", field: "model", headerFilter: true, frozen: true},
+            // {title: "Model", field: "model", width: 220, headerFilter: true, frozen: true},
             
             // Human 列
             {title: "Human", headerHozAlign: "center", columns: [
